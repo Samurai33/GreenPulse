@@ -1,45 +1,63 @@
-
-
 # GreenPulse
 
 <p align="center">
-	<img src="src/assets/voltera-logo.png" alt="GreenPulse Logo" width="120" />
+  <img src="src/assets/voltera-logo.png" alt="GreenPulse Logo" width="120" />
 </p>
 
 <p align="center">
-	<b>Monitoramento inteligente de energia, recursos e saúde operacional para ambientes críticos.</b>
+  <b>Monitoramento inteligente de energia, recursos e saúde operacional para ambientes críticos.</b>
 </p>
 
 <p align="center">
-	<a href="https://github.com/Samurai33/GreenPulse"><img src="https://img.shields.io/github/stars/Samurai33/GreenPulse?style=social" alt="GitHub stars"></a>
-	<a href="https://github.com/Samurai33/GreenPulse"><img src="https://img.shields.io/github/forks/Samurai33/GreenPulse?style=social" alt="GitHub forks"></a>
-	<img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome">
-	<img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT License">
+  <a href="https://github.com/Samurai33/GreenPulse"><img src="https://img.shields.io/github/stars/Samurai33/GreenPulse?style=social" alt="GitHub stars"></a>
+  <a href="https://github.com/Samurai33/GreenPulse"><img src="https://img.shields.io/github/forks/Samurai33/GreenPulse?style=social" alt="GitHub forks"></a>
+  <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome">
+  <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT License">
 </p>
 
 ---
 
 ## ✨ Diferenciais
 
-- Visualização em tempo real de KPIs críticos
-- Alertas inteligentes e personalizáveis
-- Interface responsiva e moderna
+- Visualização em tempo real de KPIs críticos (Energia, Carbono, SRE, Marketplace)
+- Alertas inteligentes e personalizáveis (críticos, warning, info)
+- Interface responsiva e moderna (React + Tailwind)
 - Simulação de dados para testes e demonstrações
+- Exportação de relatórios em CSV/JSON/PDF
 - Arquitetura escalável e modular
+- Marketplace de recursos computacionais
+- Monitoramento de saúde operacional (Golden Signals, hardware, incidentes)
 
-## 🚀 Tecnologias
+## 📷 Exemplos Visuais
+
+<p align="center">
+  <img src="src/assets/exemple1.png" alt="Exemplo 1" width="320" />
+  <img src="src/assets/exemple2.png" alt="Exemplo 2" width="320" />
+  <img src="src/assets/exemple3.png" alt="Exemplo 3" width="320" />
+  <img src="src/assets/exemplo4.png" alt="Exemplo 4" width="320" />
+</p>
+
+## 🚀 Tecnologias & Dependências
 
 - [React](https://react.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Vite](https://vitejs.dev/)
 - [TailwindCSS](https://tailwindcss.com/)
+- [shadcn/ui](https://ui.shadcn.com/) (componentes UI)
+- [Radix UI](https://www.radix-ui.com/)
+- [Lucide Icons](https://lucide.dev/)
+- [TanStack Query](https://tanstack.com/query)
+- [Recharts](https://recharts.org/)
+- [date-fns](https://date-fns.org/)
+- [ESLint](https://eslint.org/)
 
 ## 📦 Instalação
 
 ```sh
-git clone https://github.com/Samurai33/GreenPulse.git
-cd GreenPulse
-npm install
+# Clone o repositório
+$ git clone https://github.com/Samurai33/GreenPulse.git
+$ cd GreenPulse
+$ npm install
 ```
 
 ## 🏃‍♂️ Uso em Desenvolvimento
@@ -57,25 +75,76 @@ npm run preview
 ```
 Acesse: http://localhost:4173
 
-## 📂 Estrutura
-
-- `src/pages`: Páginas principais
-- `src/components`: Componentes reutilizáveis
-- `src/hooks`: Hooks customizados
-- `src/lib`: Funções utilitárias
-- `data/`: Dados simulados para desenvolvimento
-
-## �️ Exemplo Visual
-
-<p align="center">
-	<img src="src/assets/voltera-logo.png" alt="Dashboard Example" width="400" />
-</p>
-
-## �🛠️ Scripts
+## 🛠️ Scripts
 
 - `npm run dev`: Inicia ambiente de desenvolvimento
 - `npm run build`: Gera build de produção
 - `npm run preview`: Preview do build
+- `npm run lint`: Executa análise de código
+
+## 📂 Estrutura do Projeto
+
+```
+GreenPulse/
+├── src/
+│   ├── pages/         # Páginas principais (Dashboard, Energia, Recursos, Saúde, Relatórios, NotFound)
+│   ├── components/    # Componentes reutilizáveis (UI, gráficos, tabelas, layout)
+│   ├── hooks/         # Hooks customizados (ex: useIsMobile, useToast)
+│   ├── lib/           # Funções utilitárias e cálculos de KPIs
+│   └── assets/        # Imagens e ícones
+├── data/              # Dados simulados (JSON: energia, alertas, SRE, marketplace)
+├── public/            # Arquivos estáticos
+├── package.json       # Dependências e scripts
+├── vite.config.ts     # Configuração do Vite
+├── tailwind.config.ts # Configuração do Tailwind
+├── eslint.config.js   # Configuração do ESLint
+└── ...
+```
+
+## 🧩 Principais Funcionalidades
+
+- **Dashboard**: Visão geral dos KPIs, alertas recentes, status operacional
+- **Energia & Carbono**: Gráficos de consumo, geração solar, PUE, créditos de carbono
+- **Recursos**: Marketplace de ofertas de CPU, GPU, Storage, jobs em execução
+- **Saúde do Servidor**: Golden Signals SRE, status de hardware, incidentes, uptime, MTBF/MTTR
+- **Relatórios**: Exportação de dados, geração de snapshots, filtros por período e formato
+- **Alertas**: Sistema de alertas críticos, warning e informativos, com ações sugeridas
+- **Simulação de Dados**: Arquivos JSON para testes e demonstrações
+
+## 📊 Exemplos de Dados Simulados
+
+- `data/alerts.json`: Alertas críticos, warning e info (ex: falha solar, S.M.A.R.T. disk, latência)
+- `data/energy_timeseries.json`: Consumo horário, geração solar, PUE diário
+- `data/sre_metrics.json`: Golden Signals, hardware, incidentes, uptime, MTBF/MTTR
+- `data/marketplace.json`: Ofertas de recursos, jobs, status e preços
+
+## 🧱 Componentes UI
+
+- Botões, cards, tabelas, gráficos, badges, menus, sidebar, toast, dialog, etc. (baseados em shadcn/ui e Radix)
+- Hooks customizados: `useIsMobile`, `useToast`
+- Utilitários: `lib/kpis.ts` (cálculo de PUE, CO2, créditos), `lib/utils.ts` (classes CSS)
+
+## 🗂️ Páginas
+
+- `Dashboard.tsx`: KPIs, alertas, status geral
+- `Energia.tsx`: Gráficos de energia, PUE, créditos de carbono
+- `Recursos.tsx`: Marketplace de recursos, ofertas, jobs
+- `Saude.tsx`: Golden Signals, hardware, incidentes, uptime
+- `Relatorios.tsx`: Exportação de dados, snapshots, disclaimers
+- `NotFound.tsx`: Página 404 customizada
+
+## 🧪 Testes & Qualidade
+
+- ESLint configurado para TypeScript e React
+- Scripts de lint disponíveis (`npm run lint`)
+- Recomenda-se uso de testes unitários para funções críticas (ex: KPIs)
+
+## 🚀 Deploy
+
+- Build otimizado via Vite
+- Preview local: `npm run preview`
+- Deploy rápido via [Lovable](https://lovable.dev/projects/50c738ce-1a80-4611-b3fe-2bd49f703818)
+- Suporte a domínio customizado ([docs](https://docs.lovable.dev/features/custom-domain#custom-domain))
 
 ## 🤝 Contribuição
 
@@ -97,37 +166,10 @@ MIT © Samurai33
 - [Documentação React](https://react.dev/)
 - [Documentação Vite](https://vitejs.dev/)
 - [Documentação TailwindCSS](https://tailwindcss.com/)
+- [shadcn/ui](https://ui.shadcn.com/)
+- [Radix UI](https://www.radix-ui.com/)
+- [Lovable Deploy](https://lovable.dev/)
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+---
 
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/50c738ce-1a80-4611-b3fe-2bd49f703818) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+> **Este projeto é uma demonstração didática. Dados simulados e relatórios não substituem auditorias profissionais. Para uso oficial, consulte inventários certificados e normas técnicas.**
