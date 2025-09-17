@@ -9,10 +9,10 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/Samurai33/GreenPulse"><img src="https://img.shields.io/github/stars/Samurai33/GreenPulse?style=social" alt="GitHub stars"></a>
-  <a href="https://github.com/Samurai33/GreenPulse"><img src="https://img.shields.io/github/forks/Samurai33/GreenPulse?style=social" alt="GitHub forks"></a>
+  <a href="https://github.com/Samurai33/GreenPulse" target="_blank"><img src="https://img.shields.io/github/stars/Samurai33/GreenPulse?style=social" alt="GitHub stars"></a>
+  <a href="https://github.com/Samurai33/GreenPulse" target="_blank"><img src="https://img.shields.io/github/forks/Samurai33/GreenPulse?style=social" alt="GitHub forks"></a>
   <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome">
-  <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT License">
+  <img src="https://img.shields.io/github/license/Samurai33/GreenPulse?color=blue" alt="MIT License">
 </p>
 
 ---
@@ -34,7 +34,7 @@
   <img src="src/assets/exemple1.png" alt="Exemplo 1" width="320" />
   <img src="src/assets/exemple2.png" alt="Exemplo 2" width="320" />
   <img src="src/assets/exemple3.png" alt="Exemplo 3" width="320" />
-  <img src="src/assets/exemplo4.png" alt="Exemplo 4" width="320" />
+  <img src="src/assets/exemple4.png" alt="Exemplo 4" width="320" />
 </p>
 
 ## 🚀 Tecnologias & Dependências
