@@ -5,9 +5,9 @@ import {
   Zap, 
   Server, 
   FileText,
-  Gauge,
   Settings
 } from "lucide-react";
+import voltEraLogo from "@/assets/voltera-logo.png";
 
 import {
   Sidebar,
@@ -72,8 +72,12 @@ export function AppSidebar() {
     >
       <SidebarHeader className="border-b border-sidebar-border px-6 py-4">
         <div className="flex items-center gap-3">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-primary">
-            <Gauge className="h-5 w-5 text-primary-foreground" />
+          <div className="flex h-10 w-10 items-center justify-center">
+            <img 
+              src={voltEraLogo} 
+              alt="VoltEra Logo" 
+              className="h-10 w-10 object-contain"
+            />
           </div>
           {state === "expanded" && (
             <div className="flex flex-col">
