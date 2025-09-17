@@ -1,4 +1,4 @@
-# GreenPulse
+# GreenPulse by VoltEra
 
 <p align="center">
   <img src="src/assets/voltera-logo.png" alt="GreenPulse Logo" width="120" />
