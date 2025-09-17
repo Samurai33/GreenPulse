@@ -34,7 +34,7 @@
   <img src="src/assets/exemple1.png" alt="Exemplo 1" width="320" />
   <img src="src/assets/exemple2.png" alt="Exemplo 2" width="320" />
   <img src="src/assets/exemple3.png" alt="Exemplo 3" width="320" />
-  <img src="src/assets/exemple4.png" alt="Exemplo 4" width="320" />
+  <img src="src/assets/exemplo4.png" alt="Exemplo 4" width="320" />
 </p>
 
 ## 🚀 Tecnologias & Dependências
