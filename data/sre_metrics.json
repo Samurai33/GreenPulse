@@ -1,0 +1,41 @@
+{
+  "golden_signals": {
+    "latency_ms_p50": [45, 48, 52, 47, 49, 51, 46, 50, 53, 48, 47, 49, 52, 45, 48, 50, 47, 49, 51, 48, 46, 50, 49, 47],
+    "latency_ms_p95": [142, 156, 168, 139, 147, 162, 135, 149, 171, 144, 138, 153, 165, 140, 148, 158, 143, 151, 164, 147, 139, 155, 149, 142],
+    "error_rate_pct": [0.23, 0.18, 0.31, 0.12, 0.25, 0.29, 0.15, 0.22, 0.35, 0.19, 0.14, 0.27, 0.33, 0.16, 0.21, 0.26, 0.13, 0.24, 0.32, 0.20, 0.17, 0.28, 0.23, 0.18],
+    "traffic_rps": [950, 1020, 890, 1150, 980, 865, 1090, 975, 820, 1180, 1010, 945, 780, 1210, 1050, 920, 860, 1130, 990, 875, 1070, 965, 835, 1160],
+    "saturation": {
+      "cpu_pct": [68, 72, 65, 78, 71, 63, 75, 69, 61, 82, 74, 67, 59, 85, 76, 70, 64, 79, 73, 66, 77, 71, 62, 80],
+      "ram_pct": [45, 52, 48, 58, 51, 43, 56, 49, 41, 62, 54, 47, 39, 65, 57, 50, 44, 59, 53, 46, 55, 51, 42, 60]
+    }
+  },
+  "hardware": {
+    "cpu_temp_c": [62, 65, 58, 71, 64, 56, 69, 63, 55, 75, 67, 61, 53, 78, 70, 65, 59, 73, 66, 60, 72, 64, 57, 74],
+    "disks": [
+      {"id": "nvme0n1", "smart": "OK", "temp_c": 45, "wear_level": 98},
+      {"id": "nvme1n1", "smart": "OK", "temp_c": 42, "wear_level": 97},
+      {"id": "sda", "smart": "WARN", "temp_c": 48, "wear_level": 89},
+      {"id": "sdb", "smart": "OK", "temp_c": 44, "wear_level": 96}
+    ],
+    "fans": [
+      {"id": "fan1", "rpm": 2450, "status": "OK"},
+      {"id": "fan2", "rpm": 2380, "status": "OK"},
+      {"id": "fan3", "rpm": 0, "status": "FAULT"},
+      {"id": "fan4", "rpm": 2420, "status": "OK"}
+    ],
+    "network": {
+      "jitter_ms": [2.1, 1.8, 2.5, 1.9, 2.2, 1.7, 2.4, 2.0, 1.6, 2.6, 2.3, 1.9, 1.5, 2.7, 2.4, 2.1, 1.8, 2.5, 2.2, 1.9, 2.3, 2.0, 1.7, 2.4],
+      "packet_loss_pct": [0.01, 0.02, 0.03, 0.01, 0.02, 0.00, 0.04, 0.02, 0.01, 0.05, 0.03, 0.01, 0.00, 0.06, 0.04, 0.02, 0.01, 0.05, 0.03, 0.02, 0.04, 0.02, 0.01, 0.05]
+    }
+  },
+  "incidents": [
+    {"id": "INC-101", "sev": "high", "title": "Disk /dev/sda SMART warning", "startedAt": "2025-09-15T13:20:00Z", "status": "mitigated", "mttr_min": 34},
+    {"id": "INC-102", "sev": "critical", "title": "Fan failure - fan3", "startedAt": "2025-09-14T08:45:00Z", "status": "resolved", "mttr_min": 127},
+    {"id": "INC-103", "sev": "medium", "title": "High CPU temperature", "startedAt": "2025-09-13T15:30:00Z", "status": "resolved", "mttr_min": 45},
+    {"id": "INC-104", "sev": "low", "title": "Network jitter spike", "startedAt": "2025-09-12T11:15:00Z", "status": "resolved", "mttr_min": 12},
+    {"id": "INC-105", "sev": "high", "title": "Memory usage threshold exceeded", "startedAt": "2025-09-11T09:20:00Z", "status": "resolved", "mttr_min": 67}
+  ],
+  "uptime_30d": 99.7,
+  "mtbf_hours": 168,
+  "mttr_avg_min": 57
+}

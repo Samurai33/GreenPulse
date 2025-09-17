@@ -1,0 +1,82 @@
+[
+  {
+    "id": "AL-1", 
+    "severity": "critical", 
+    "source": "power", 
+    "title": "Queda de geração solar",
+    "description": "Inversor solar reportando falha na string 2",
+    "ts": "2025-09-17T12:03:00Z",
+    "acknowledged": false,
+    "actions": ["restart_inverter", "contact_technician"]
+  },
+  {
+    "id": "AL-2", 
+    "severity": "warning", 
+    "source": "hardware", 
+    "title": "S.M.A.R.T. alerta em sda",
+    "description": "Disk reallocated sectors count increased",
+    "ts": "2025-09-17T10:40:00Z",
+    "acknowledged": true,
+    "actions": ["schedule_replacement", "backup_data"]
+  },
+  {
+    "id": "AL-3", 
+    "severity": "info", 
+    "source": "network", 
+    "title": "Latência elevada detectada",
+    "description": "P95 latency exceeded 200ms threshold",
+    "ts": "2025-09-17T09:15:00Z",
+    "acknowledged": true,
+    "actions": ["check_routing", "monitor"]
+  },
+  {
+    "id": "AL-4", 
+    "severity": "warning", 
+    "source": "thermal", 
+    "title": "Temperatura CPU alta",
+    "description": "CPU core temperature reached 78°C",
+    "ts": "2025-09-17T08:30:00Z",
+    "acknowledged": false,
+    "actions": ["increase_fan_speed", "check_cooling"]
+  },
+  {
+    "id": "AL-5", 
+    "severity": "critical", 
+    "source": "hardware", 
+    "title": "Fan failure detected",
+    "description": "Chassis fan 3 stopped responding",
+    "ts": "2025-09-16T22:45:00Z",
+    "acknowledged": true,
+    "actions": ["replace_fan", "enable_backup_cooling"]
+  },
+  {
+    "id": "AL-6", 
+    "severity": "info", 
+    "source": "marketplace", 
+    "title": "Nova solicitação de recursos",
+    "description": "Cliente solicitou 4 GPU hours para ML training",
+    "ts": "2025-09-16T20:12:00Z",
+    "acknowledged": true,
+    "actions": ["approve_request", "allocate_resources"]
+  },
+  {
+    "id": "AL-7", 
+    "severity": "warning", 
+    "source": "energy", 
+    "title": "PUE acima da meta",
+    "description": "PUE atual: 1.35, meta: ≤1.30",
+    "ts": "2025-09-16T18:20:00Z",
+    "acknowledged": false,
+    "actions": ["optimize_cooling", "redistribute_load"]
+  },
+  {
+    "id": "AL-8", 
+    "severity": "info", 
+    "source": "maintenance", 
+    "title": "Manutenção programada",
+    "description": "Backup dos dados agendado para 02:00",
+    "ts": "2025-09-16T16:30:00Z",
+    "acknowledged": true,
+    "actions": ["confirm_maintenance", "notify_users"]
+  }
+]

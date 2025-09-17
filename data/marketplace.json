@@ -1,0 +1,119 @@
+{
+  "offers": [
+    {
+      "id": "OF-CPU-01", 
+      "type": "CPU", 
+      "quantity": 64, 
+      "unit": "vCores",
+      "price_per_hour": 0.06, 
+      "sla": "silver", 
+      "status": "active",
+      "description": "Intel Xeon Gold 6248R cores",
+      "availability_pct": 85
+    },
+    {
+      "id": "OF-GPU-01", 
+      "type": "GPU", 
+      "quantity": 2, 
+      "unit": "units",
+      "price_per_hour": 0.85, 
+      "sla": "gold", 
+      "status": "active",
+      "description": "NVIDIA RTX 4090 24GB",
+      "availability_pct": 92
+    },
+    {
+      "id": "OF-CPU-02", 
+      "type": "CPU", 
+      "quantity": 32, 
+      "unit": "vCores",
+      "price_per_hour": 0.04, 
+      "sla": "bronze", 
+      "status": "maintenance",
+      "description": "AMD EPYC 7542 cores",
+      "availability_pct": 0
+    },
+    {
+      "id": "OF-STOR-01", 
+      "type": "Storage", 
+      "quantity": 1024, 
+      "unit": "GB",
+      "price_per_hour": 0.02, 
+      "sla": "silver", 
+      "status": "active",
+      "description": "NVMe SSD storage",
+      "availability_pct": 78
+    },
+    {
+      "id": "OF-RAM-01", 
+      "type": "Memory", 
+      "quantity": 256, 
+      "unit": "GB",
+      "price_per_hour": 0.08, 
+      "sla": "gold", 
+      "status": "active",
+      "description": "DDR5-4800 ECC memory",
+      "availability_pct": 89
+    }
+  ],
+  "jobs": [
+    {
+      "id": "JOB-7781", 
+      "type": "CPU", 
+      "hours": 12, 
+      "cost": 0.72, 
+      "status": "running",
+      "client": "Anonymous",
+      "started_at": "2025-09-17T06:00:00Z",
+      "estimated_completion": "2025-09-17T18:00:00Z"
+    },
+    {
+      "id": "JOB-7782", 
+      "type": "GPU", 
+      "hours": 3, 
+      "cost": 2.55, 
+      "status": "queued",
+      "client": "Research Lab",
+      "started_at": null,
+      "estimated_completion": null
+    },
+    {
+      "id": "JOB-7783", 
+      "type": "Storage", 
+      "hours": 168, 
+      "cost": 3.36, 
+      "status": "running",
+      "client": "Backup Service",
+      "started_at": "2025-09-10T00:00:00Z",
+      "estimated_completion": "2025-09-17T00:00:00Z"
+    },
+    {
+      "id": "JOB-7784", 
+      "type": "GPU", 
+      "hours": 6, 
+      "cost": 5.10, 
+      "status": "completed",
+      "client": "ML Training",
+      "started_at": "2025-09-16T12:00:00Z",
+      "estimated_completion": "2025-09-16T18:00:00Z"
+    },
+    {
+      "id": "JOB-7785", 
+      "type": "CPU", 
+      "hours": 24, 
+      "cost": 1.44, 
+      "status": "running",
+      "client": "Distributed Compute",
+      "started_at": "2025-09-16T18:00:00Z",
+      "estimated_completion": "2025-09-17T18:00:00Z"
+    }
+  ],
+  "summary": {
+    "total_slots_available": 387,
+    "total_slots_rented": 134,
+    "utilization_pct": 34.6,
+    "estimated_revenue_monthly": 1247.50,
+    "active_clients": 12,
+    "avg_job_duration_hours": 18.5
+  }
+}
