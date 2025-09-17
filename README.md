@@ -34,7 +34,7 @@
   <img src="src/assets/exemple1.png" alt="Exemplo 1" width="320" />
   <img src="src/assets/exemple2.png" alt="Exemplo 2" width="320" />
   <img src="src/assets/exemple3.png" alt="Exemplo 3" width="320" />
-  <img src="src/assets/exemplo4.png" alt="Exemplo 4" width="320" />
+  <img src="src/assets/exemple4.png" alt="Exemplo 4" width="320" />
 </p>
 
 ## 🚀 Tecnologias & Dependências
@@ -82,23 +82,69 @@ Acesse: http://localhost:4173
 - `npm run preview`: Preview do build
 - `npm run lint`: Executa análise de código
 
-## 📂 Estrutura do Projeto
+## 📂 Estrutura Real do Projeto
 
 ```
 GreenPulse/
+├── bun.lockb
+├── components.json
+├── data/
+│   ├── alerts.json
+│   ├── energy_timeseries.json
+│   ├── marketplace.json
+│   └── sre_metrics.json
+├── eslint.config.js
+├── index.html
+├── package-lock.json
+├── package.json
+├── postcss.config.js
+├── public/
+│   ├── favicon.ico
+│   ├── placeholder.svg
+│   └── robots.txt
+├── README.md
 ├── src/
-│   ├── pages/         # Páginas principais (Dashboard, Energia, Recursos, Saúde, Relatórios, NotFound)
-│   ├── components/    # Componentes reutilizáveis (UI, gráficos, tabelas, layout)
-│   ├── hooks/         # Hooks customizados (ex: useIsMobile, useToast)
-│   ├── lib/           # Funções utilitárias e cálculos de KPIs
-│   └── assets/        # Imagens e ícones
-├── data/              # Dados simulados (JSON: energia, alertas, SRE, marketplace)
-├── public/            # Arquivos estáticos
-├── package.json       # Dependências e scripts
-├── vite.config.ts     # Configuração do Vite
-├── tailwind.config.ts # Configuração do Tailwind
-├── eslint.config.js   # Configuração do ESLint
-└── ...
+│   ├── App.css
+│   ├── App.tsx
+│   ├── assets/
+│   │   ├── exemple1.png
+│   │   ├── exemple2.png
+│   │   ├── exemple3.png
+│   │   ├── exemplo4.png
+│   │   └── voltera-logo.png
+│   ├── components/
+│   │   ├── alerts/
+│   │   │   └── alerts-table.tsx
+│   │   ├── charts/
+│   │   │   ├── energy-area-chart.tsx
+│   │   │   └── pue-gauge.tsx
+│   │   ├── layout/
+│   │   │   ├── app-sidebar.tsx
+│   │   │   └── dashboard-layout.tsx
+│   │   └── ui/
+│   │      └── [diversos componentes UI]
+│   ├── hooks/
+│   │   ├── use-mobile.tsx
+│   │   └── use-toast.ts
+│   ├── index.css
+│   ├── lib/
+│   │   ├── kpis.ts
+│   │   └── utils.ts
+│   ├── main.tsx
+│   ├── pages/
+│   │   ├── Dashboard.tsx
+│   │   ├── Energia.tsx
+│   │   ├── Index.tsx
+│   │   ├── NotFound.tsx
+│   │   ├── Recursos.tsx
+│   │   ├── Relatorios.tsx
+│   │   └── Saude.tsx
+│   └── vite-env.d.ts
+├── tailwind.config.ts
+├── tsconfig.app.json
+├── tsconfig.json
+├── tsconfig.node.json
+└── vite.config.ts
 ```
 
 ## 🧩 Principais Funcionalidades
