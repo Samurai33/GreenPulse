@@ -218,4 +218,119 @@ MIT © Samurai33
 
 ---
 
-> **Este projeto é uma demonstração didática. Dados simulados e relatórios não substituem auditorias profissionais. Para uso oficial, consulte inventários certificados e normas técnicas.**
+# Documentação do Projeto GreenPulse (Dashboard VoltEra)
+
+## Visão Geral
+
+GreenPulse é o dashboard oficial do sistema VoltEra, responsável pelo monitoramento, visualização e controle dos principais indicadores de energia, recursos computacionais e saúde operacional em ambientes críticos. Ele integra dados do backend VoltEra, apresenta KPIs em tempo real, permite exportação de relatórios e oferece interface para alertas e marketplace de recursos.
+
+## Índice
+- [Visão Geral](#visão-geral)
+- [Arquitetura](#arquitetura)
+- [Funcionalidades](#funcionalidades)
+- [Estrutura de Pastas](#estrutura-de-pastas)
+- [Fluxo de Dados](#fluxo-de-dados)
+- [Componentes Principais](#componentes-principais)
+- [Integração com VoltEra](#integração-com-voltera)
+- [Instalação e Execução](#instalação-e-execução)
+- [Scripts Disponíveis](#scripts-disponíveis)
+- [Testes e Qualidade](#testes-e-qualidade)
+- [Deploy e Ambiente](#deploy-e-ambiente)
+- [Contribuição](#contribuição)
+- [Licença](#licença)
+- [Referências](#referências)
+
+## Arquitetura
+- **Frontend:** React + TypeScript + Vite + TailwindCSS
+- **Backend (VoltEra):** API REST/GraphQL (não incluso neste repositório)
+- **Dados simulados:** Arquivos JSON para desenvolvimento e demonstração
+- **Componentização:** UI modular baseada em shadcn/ui e Radix UI
+
+## Funcionalidades
+- Visualização de KPIs críticos (Energia, Carbono, SRE, Marketplace)
+- Alertas inteligentes e personalizáveis
+- Exportação de relatórios (CSV, JSON, PDF)
+- Marketplace de recursos computacionais
+- Monitoramento de saúde operacional (Golden Signals, hardware, incidentes)
+- Interface responsiva e moderna
+- Simulação de dados para testes
+
+## Estrutura de Pastas
+```
+GreenPulse/
+├── src/
+│   ├── assets/         # Imagens e ícones
+│   ├── components/     # Componentes (UI, gráficos, tabelas, layout)
+│   ├── hooks/          # Hooks customizados
+│   ├── lib/            # Funções utilitárias e KPIs
+│   ├── pages/          # Páginas principais
+│   └── ...
+├── data/               # Dados simulados (JSON)
+├── public/             # Arquivos estáticos
+├── ...
+```
+
+## Fluxo de Dados
+- Dados reais: obtidos via API VoltEra
+- Dados simulados: arquivos em `/data` para desenvolvimento
+- KPIs calculados em tempo real via funções utilitárias
+- Alertas e incidentes exibidos e atualizados dinamicamente
+
+## Componentes Principais
+- **Dashboard:** Visão geral dos KPIs e alertas
+- **Energia & Carbono:** Gráficos de consumo, geração solar, PUE, créditos de carbono
+- **Recursos:** Marketplace de ofertas de CPU, GPU, Storage
+- **Saúde do Servidor:** Golden Signals, hardware, incidentes, uptime
+- **Relatórios:** Exportação de dados, snapshots, disclaimers
+- **Alertas:** Sistema de alertas críticos, warning e informativos
+
+## Integração com VoltEra
+- Endpoints de API para ingestão de dados de energia, recursos, incidentes e alertas
+- Autenticação e autorização (quando aplicável)
+- Suporte a WebSocket/Streaming para dados em tempo real (opcional)
+
+## Instalação e Execução
+```sh
+# Clone o repositório
+$ git clone https://github.com/Samurai33/GreenPulse.git
+$ cd GreenPulse
+$ npm install
+$ npm run dev
+```
+Acesse: http://localhost:5173
+
+## Scripts Disponíveis
+- `npm run dev`: Ambiente de desenvolvimento
+- `npm run build`: Build de produção
+- `npm run preview`: Preview do build
+- `npm run lint`: Análise de código
+
+## Testes e Qualidade
+- ESLint configurado para TypeScript e React
+- Recomenda-se uso de testes unitários para funções críticas (ex: KPIs)
+- Testes de integração podem ser implementados para endpoints VoltEra
+
+## Deploy e Ambiente
+- Build otimizado via Vite
+- Deploy via Lovable ou ambiente customizado
+- Suporte a domínio customizado
+
+## Contribuição
+- Fork, branch, commit, pull request
+- Siga o padrão de código e escreva testes
+
+## Licença
+MIT © Samurai33
+
+## Referências
+- [Documentação React](https://react.dev/)
+- [Documentação Vite](https://vitejs.dev/)
+- [Documentação TailwindCSS](https://tailwindcss.com/)
+- [shadcn/ui](https://ui.shadcn.com/)
+- [Radix UI](https://www.radix-ui.com/)
+- [Lovable Deploy](https://lovable.dev/)
+- [VoltEra API Docs] (interna)
+
+---
+
+> Para projetos corporativos, recomenda-se incluir documentação de API, manual do usuário, guia de integração, arquitetura detalhada, fluxos de autenticação/autorização, exemplos de payloads, e instruções de troubleshooting.
