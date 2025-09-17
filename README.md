@@ -9,17 +9,14 @@
 </p>
 
 <p align="center">
-  <!-- Badges recomendados por devs modernos -->
+  <!-- Badges funcionais e modernos -->
   <a href="https://github.com/Samurai33/GreenPulse" target="_blank">
     <img src="https://img.shields.io/github/stars/Samurai33/GreenPulse?style=social" alt="GitHub stars">
   </a>
   <a href="https://github.com/Samurai33/GreenPulse/fork" target="_blank">
     <img src="https://img.shields.io/github/forks/Samurai33/GreenPulse?style=social" alt="GitHub forks">
   </a>
-  <a href="https://github.com/Samurai33/GreenPulse/actions" target="_blank">
-    <img src="https://img.shields.io/github/actions/workflow/status/Samurai33/GreenPulse/main.yml?branch=main&label=build&logo=github" alt="Build Status">
-  </a>
-  <a href="https://github.com/Samurai33/GreenPulse/issues" target="_blank">
+  <a href="https://github.com/Samurai33/GreenPulse" target="_blank">
     <img src="https://img.shields.io/github/issues/Samurai33/GreenPulse?logo=github" alt="Issues">
   </a>
   <a href="https://github.com/Samurai33/GreenPulse/pulls" target="_blank">
@@ -30,9 +27,6 @@
   </a>
   <a href="https://github.com/Samurai33/GreenPulse" target="_blank">
     <img src="https://img.shields.io/github/last-commit/Samurai33/GreenPulse?logo=github" alt="Last Commit">
-  </a>
-  <a href="https://github.com/Samurai33/GreenPulse" target="_blank">
-    <img src="https://img.shields.io/github/repo-size/Samurai33/GreenPulse?logo=github" alt="Repo Size">
   </a>
 </p>
 
