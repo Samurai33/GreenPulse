@@ -8,6 +8,8 @@ import {
   Settings
 } from "lucide-react";
 import voltEraLogo from "@/assets/voltera-logo.png";
+import { useTranslation } from "react-i18next";
+import i18n from "@/lib/i18n";
 
 import {
   Sidebar,
@@ -21,44 +23,52 @@ import {
   SidebarHeader,
   useSidebar,
 } from "@/components/ui/sidebar";
-
-const navigationItems = [
-  { 
-    title: "Visão Geral", 
-    url: "/", 
-    icon: Activity,
-    description: "Dashboard principal"
-  },
-  { 
-    title: "Energia & Carbono", 
-    url: "/energia", 
-    icon: Zap,
-    description: "Monitoramento energético"
-  },
-  { 
-    title: "Recursos Ociosos", 
-    url: "/recursos", 
-    icon: BarChart3,
-    description: "Marketplace de recursos"
-  },
-  { 
-    title: "Saúde do Servidor", 
-    url: "/saude", 
-    icon: Server,
-    description: "Métricas SRE e hardware"
-  },
-  { 
-    title: "Relatórios", 
-    url: "/relatorios", 
-    icon: FileText,
-    description: "Exportação e análises"
-  }
-];
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 export function AppSidebar() {
+  const { t } = useTranslation();
   const { state } = useSidebar();
   const location = useLocation();
   const currentPath = location.pathname;
+  
+  const navigationItems = [
+    { 
+      title: t("nav.dashboard"), 
+      url: "/", 
+      icon: Activity,
+      description: t("nav.descriptions.dashboard")
+    },
+    { 
+      title: t("nav.energia"), 
+      url: "/energia", 
+      icon: Zap,
+      description: t("nav.descriptions.energia")
+    },
+    { 
+      title: t("nav.recursos"), 
+      url: "/recursos", 
+      icon: BarChart3,
+      description: t("nav.descriptions.recursos")
+    },
+    { 
+      title: t("nav.saude"), 
+      url: "/saude", 
+      icon: Server,
+      description: t("nav.descriptions.saude")
+    },
+    { 
+      title: t("nav.relatorios"), 
+      url: "/relatorios", 
+      icon: FileText,
+      description: t("nav.descriptions.relatorios")
+    }
+  ];
   
   const isActive = (path: string) => {
     if (path === "/") return currentPath === "/";
@@ -91,7 +101,7 @@ export function AppSidebar() {
       <SidebarContent className="px-3 py-4">
         <SidebarGroup>
           <SidebarGroupLabel className="px-3 text-xs font-medium text-muted-foreground uppercase tracking-wider">
-            Navegação Principal
+            {t("nav.mainNavigation")}
           </SidebarGroupLabel>
           
           <SidebarGroupContent>
@@ -128,7 +138,19 @@ export function AppSidebar() {
         </SidebarGroup>
 
         {state === "expanded" && (
-          <div className="mt-auto px-3 py-4 border-t border-sidebar-border">
+          <div className="mt-auto px-3 py-4 border-t border-sidebar-border space-y-3">
+            <div className="flex items-center justify-between">
+              <span className="text-xs font-medium text-muted-foreground">{t("common.language")}</span>
+              <Select value={i18n.language} onValueChange={(value) => i18n.changeLanguage(value)}>
+                <SelectTrigger className="w-20 h-8">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="pt">PT</SelectItem>
+                  <SelectItem value="en">EN</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
             <div className="rounded-lg bg-gradient-glass p-3 backdrop-blur-sm border border-glass-border">
               <div className="flex items-center gap-2 text-xs text-muted-foreground">
                 <Settings className="h-3 w-3" />

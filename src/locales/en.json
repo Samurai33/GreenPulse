@@ -1,0 +1,296 @@
+{
+  "nav": {
+    "dashboard": "Overview",
+    "energia": "Energy & Carbon",
+    "recursos": "Idle Resources",
+    "relatorios": "Reports",
+    "saude": "Server Health",
+    "mainNavigation": "Main Navigation",
+    "descriptions": {
+      "dashboard": "Main dashboard",
+      "energia": "Energy monitoring",
+      "recursos": "Resource marketplace",
+      "relatorios": "Export and analysis",
+      "saude": "SRE metrics and hardware"
+    }
+  },
+  "dashboard": {
+    "title": "Overview",
+    "subtitle": "Main dashboard of the sustainable VoltEra datacenter",
+    "kpis": {
+      "uptime30d": "Uptime 30d",
+      "uptimeSubtitle": "System availability",
+      "pueCurrent": "Current PUE",
+      "pueTarget": "Target: ≤1.30",
+      "pueGood": "Good",
+      "pueHigh": "High",
+      "kwhToday": "kWh Today",
+      "consumptionSubtitle": "Total net consumption",
+      "stable": "Stable",
+      "co2AvoidedToday": "CO₂ Avoided Today",
+      "environmentalBenefit": "Environmental benefit",
+      "carbonCreditsYtd": "Estimated Credits YTD",
+      "carbonCreditsSubtitle": "tCO₂e (unofficial)",
+      "latencyP95": "Latency p95",
+      "responseTime": "Response time",
+      "errorRate": "Error Rate",
+      "failedRequests": "Failed requests",
+      "traffic": "Traffic",
+      "requestsPerSecond": "Requests per second",
+      "cpuSaturation": "CPU Saturation",
+      "processorUtilization": "Processor utilization"
+    },
+    "marketplace": {
+      "title": "Resource Marketplace",
+      "availableSlots": "Available Slots",
+      "slotsSubtitle": "CPU/GPU/Storage",
+      "utilization": "Utilization",
+      "rentedResources": "Rented resources",
+      "estimatedRevenue": "Estimated Revenue",
+      "monthlySimulated": "Monthly (simulated)",
+      "activeClients": "Active Clients",
+      "activeRequests": "Active requests"
+    },
+    "systemStatus": {
+      "title": "System Status",
+      "solarGeneration": "Solar Generation",
+      "active": "Active",
+      "operationMode": "Operation Mode",
+      "performance": "Performance",
+      "maintenance": "Maintenance",
+      "scheduled": "Scheduled 02:00"
+    },
+    "errors": {
+      "loadData": "Error loading data:"
+    }
+  },
+  "energia": {
+    "title": "Energy & Carbon",
+    "subtitle": "Energy monitoring and environmental impact of the datacenter",
+    "kpis": {
+      "solarGeneration": "Solar Generation",
+      "solarSubtitle": "Clean energy generated today",
+      "gridEnergy": "Grid Energy",
+      "gridSubtitle": "Grid electricity consumption",
+      "itConsumption": "IT Consumption",
+      "itSubtitle": "Equipment load",
+      "overheadLosses": "Overhead Losses",
+      "overheadSubtitle": "Cooling and auxiliaries",
+      "stable": "Stable"
+    },
+    "errors": {
+      "loadData": "Error loading energy data:"
+    }
+  },
+  "saude": {
+    "title": "Server Health",
+    "subtitle": "SRE metrics, Golden Signals and hardware monitoring",
+    "kpis": {
+      "latencyP95": "Latency P95",
+      "latencySubtitle": "95th percentile response time",
+      "errorRate": "Error Rate",
+      "errorSubtitle": "Failed requests",
+      "traffic": "Traffic",
+      "trafficSubtitle": "Requests per second",
+      "cpuSaturation": "CPU Saturation",
+      "cpuSubtitle": "Processor utilization",
+      "uptime30d": "Uptime 30d",
+      "uptimeSubtitle": "System availability",
+      "mtbf": "MTBF",
+      "mtbfSubtitle": "Mean Time Between Failures",
+      "mttr": "Average MTTR",
+      "mttrSubtitle": "Mean Time To Recovery",
+      "good": "Good",
+      "high": "High"
+    },
+    "charts": {
+      "latency": "Latency (ms)",
+      "latencySubtitle": "P50 and P95 over the last 24 hours",
+      "errorsTraffic": "Errors & Traffic",
+      "errorsTrafficSubtitle": "Error rate and request volume"
+    },
+    "hardware": {
+      "status": "Hardware Status",
+      "cpuTemp": "CPU Temperature",
+      "high": "HIGH",
+      "ok": "OK",
+      "networkJitter": "Network Jitter",
+      "packetLoss": "Packet Loss",
+      "disks": "Disk Status",
+      "disk": "Disk",
+      "smart": "S.M.A.R.T.",
+      "temp": "Temp",
+      "wear": "Wear",
+      "fans": "Fan Status",
+      "rpm": "RPM"
+    },
+    "incidents": {
+      "title": "Incident History",
+      "subtitle": "Latest incidents and resolution time",
+      "runbooks": "Runbooks",
+      "id": "ID",
+      "severity": "Severity",
+      "titleCol": "Title",
+      "started": "Started",
+      "status": "Status",
+      "mttr": "MTTR",
+      "actions": "Actions",
+      "resolved": "resolved"
+    }
+  },
+  "recursos": {
+    "title": "Idle Resources",
+    "subtitle": "Marketplace for sharing CPU, GPU and storage",
+    "disclaimer": "Concept: Inspired by volunteer/idle computing (BOINC). This is an educational simulation.",
+    "kpis": {
+      "availableSlots": "Available Slots",
+      "slotsSubtitle": "Total resources",
+      "utilization": "Utilization",
+      "utilizationSubtitle": "Resources in use",
+      "estimatedRevenue": "Estimated Revenue",
+      "revenueSubtitle": "Monthly (simulated)",
+      "activeClients": "Active Clients",
+      "clientsSubtitle": "Active requests"
+    },
+    "actions": {
+      "publishOffer": "Publish Offer",
+      "rentResource": "Rent Resource",
+      "manageContracts": "Manage Contracts"
+    },
+    "offers": {
+      "title": "Available Offers",
+      "subtitle": "Resources you are offering in the marketplace",
+      "resource": "Resource",
+      "quantity": "Quantity",
+      "priceHour": "Price/h",
+      "sla": "SLA",
+      "status": "Status",
+      "available": "available"
+    },
+    "jobs": {
+      "title": "External Jobs",
+      "subtitle": "Jobs running from external clients",
+      "jobId": "Job ID",
+      "type": "Type",
+      "duration": "Duration",
+      "cost": "Cost",
+      "status": "Status",
+      "totalHours": "total hours"
+    },
+    "utilization": "Utilization:",
+    "total": "total"
+  },
+  "relatorios": {
+    "title": "Reports",
+    "subtitle": "Data export and report generation for analysis",
+    "controls": {
+      "lastDay": "Last day",
+      "last7Days": "Last 7 days",
+      "last30Days": "Last 30 days",
+      "last90Days": "Last 90 days",
+      "lastYear": "Last year"
+    },
+    "actions": {
+      "generateSnapshot": "Generate PDF Snapshot",
+      "viewData": "View Data"
+    },
+    "types": {
+      "energy": {
+        "title": "Energy Report",
+        "description": "Consumption data, solar generation and daily PUE"
+      },
+      "co2": {
+        "title": "CO₂ Avoided Report",
+        "description": "Environmental impact and estimated carbon credits"
+      },
+      "pue": {
+        "title": "PUE History",
+        "description": "Energy efficiency evolution (30 days)"
+      },
+      "incidents": {
+        "title": "Incidents Report",
+        "description": "Incident log, MTTR and MTBF"
+      },
+      "marketplace": {
+        "title": "Resource Marketplace",
+        "description": "Offers, executed jobs and revenue"
+      },
+      "sre": {
+        "title": "SRE Golden Signals",
+        "description": "Latency, errors and saturation metrics"
+      }
+    },
+    "summary": {
+      "title": "Available Data Summary",
+      "energyData": "Energy Data",
+      "energyItems": [
+        "Hourly solar generation",
+        "Grid consumption",
+        "IT load and overhead",
+        "Calculated PUE"
+      ],
+      "environmentalData": "Environmental Data",
+      "environmentalItems": [
+        "Calculated CO₂ avoided",
+        "Credit estimates",
+        "Emission factors",
+        "Efficiency metrics"
+      ],
+      "operationalData": "Operational Data",
+      "operationalItems": [
+        "SRE Golden Signals",
+        "Hardware status",
+        "Incident log",
+        "Resource marketplace"
+      ]
+    },
+    "warnings": {
+      "title": "⚠️ Important Warnings",
+      "items": [
+        "All data is simulated for demonstration purposes",
+        "Carbon credits are educational estimates without market value",
+        "For official use, consult a certified GHG inventory",
+        "Reports do not replace professional energy audits"
+      ]
+    },
+    "errors": {
+      "generateSnapshot": "Error generating snapshot",
+      "retry": "Try again in a few moments."
+    }
+  },
+  "alerts": {
+    "title": "Recent Alerts",
+    "unacknowledged": "unacknowledged of",
+    "total": "total",
+    "status": "Status",
+    "alert": "Alert",
+    "source": "Source",
+    "time": "Time",
+    "actions": "Actions",
+    "actionsMap": {
+      "restart_inverter": "Restart Inverter",
+      "contact_technician": "Contact Technician",
+      "schedule_replacement": "Schedule Replacement",
+      "backup_data": "Backup Data",
+      "check_routing": "Check Routing",
+      "monitor": "Monitor",
+      "increase_fan_speed": "Increase Fan Speed",
+      "check_cooling": "Check Cooling",
+      "replace_fan": "Replace Fan",
+      "enable_backup_cooling": "Enable Backup Cooling",
+      "approve_request": "Approve Request",
+      "allocate_resources": "Allocate Resources",
+      "optimize_cooling": "Optimize Cooling",
+      "redistribute_load": "Redistribute Load",
+      "confirm_maintenance": "Confirm Maintenance",
+      "notify_users": "Notify Users"
+    }
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "save": "Save",
+    "cancel": "Cancel",
+    "language": "Language"
+  }
+}

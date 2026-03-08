@@ -4,6 +4,7 @@ import { KpiCard } from "@/components/ui/kpi-card";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { useTranslation } from "react-i18next";
 import { 
   Table,
   TableBody,
@@ -61,6 +62,7 @@ interface MarketplaceSummary {
 }
 
 export default function Recursos() {
+  const { t } = useTranslation();
   const [offers, setOffers] = useState<Offer[]>([]);
   const [jobs, setJobs] = useState<Job[]>([]);
   const [summary, setSummary] = useState<MarketplaceSummary | null>(null);
@@ -144,15 +146,15 @@ export default function Recursos() {
       <div className="space-y-6">
         {/* Page Header */}
         <div className="space-y-2">
-          <h1 className="text-3xl font-bold text-foreground">Recursos Ociosos</h1>
+          <h1 className="text-3xl font-bold text-foreground">{t('recursos.title')}</h1>
           <p className="text-muted-foreground">
-            Marketplace para compartilhamento de CPU, GPU e armazenamento
+            {t('recursos.subtitle')}
           </p>
           
           {/* Disclaimer */}
           <div className="bg-info/10 border border-info/30 rounded-lg p-3 mt-4">
             <p className="text-sm text-info">
-              <strong>Conceito:</strong> Inspirado em volunteer/idle computing (BOINC). Esta é uma simulação educativa.
+              <strong>{t('recursos.disclaimer')}</strong>
             </p>
           </div>
         </div>
@@ -160,18 +162,18 @@ export default function Recursos() {
         {/* Summary KPIs */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           <KpiCard
-            title="Slots Disponíveis"
+            title={t('recursos.kpis.availableSlots')}
             value={summary?.total_slots_available || 0}
-            subtitle="Total de recursos"
+            subtitle={t('recursos.kpis.slotsSubtitle')}
             icon={Server}
             status="info"
             variant="featured"
           />
           
           <KpiCard
-            title="Utilização"
+            title={t('recursos.kpis.utilization')}
             value={`${summary?.utilization_pct?.toFixed(1) || 0}%`}
-            subtitle="Recursos em uso"
+            subtitle={t('recursos.kpis.utilizationSubtitle')}
             icon={TrendingUp}
             status={summary && summary.utilization_pct > 50 ? 'success' : 'warning'}
             trend={{ 
@@ -181,18 +183,18 @@ export default function Recursos() {
           />
           
           <KpiCard
-            title="Receita Estimada"
+            title={t('recursos.kpis.estimatedRevenue')}
             value={`$${summary?.estimated_revenue_monthly?.toFixed(0) || 0}`}
-            subtitle="Mensal (simulado)"
+            subtitle={t('recursos.kpis.revenueSubtitle')}
             icon={DollarSign}
             status="success"
             trend={{ direction: 'up', value: '+12%' }}
           />
           
           <KpiCard
-            title="Clientes Ativos"
+            title={t('recursos.kpis.activeClients')}
             value={summary?.active_clients || 0}
-            subtitle="Solicitações ativas"
+            subtitle={t('recursos.kpis.clientsSubtitle')}
             icon={Users}
             status="info"
           />
@@ -202,13 +204,13 @@ export default function Recursos() {
         <div className="flex gap-4">
           <Button className="bg-gradient-primary text-primary-foreground">
             <Plus className="h-4 w-4 mr-2" />
-            Publicar Oferta
+            {t('recursos.actions.publishOffer')}
           </Button>
           <Button variant="outline">
-            Alugar Recurso
+            {t('recursos.actions.rentResource')}
           </Button>
           <Button variant="outline">
-            Gerenciar Contratos
+            {t('recursos.actions.manageContracts')}
           </Button>
         </div>
 
@@ -219,10 +221,10 @@ export default function Recursos() {
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Server className="h-5 w-5" />
-                Ofertas Disponíveis
+                {t('recursos.offers.title')}
               </CardTitle>
               <p className="text-sm text-muted-foreground">
-                Recursos que você está oferecendo no marketplace
+                {t('recursos.offers.subtitle')}
               </p>
             </CardHeader>
             
@@ -230,11 +232,11 @@ export default function Recursos() {
               <Table>
                 <TableHeader>
                   <TableRow>
-                    <TableHead>Recurso</TableHead>
-                    <TableHead>Quantidade</TableHead>
-                    <TableHead>Preço/h</TableHead>
-                    <TableHead>SLA</TableHead>
-                    <TableHead>Status</TableHead>
+                    <TableHead>{t('recursos.offers.resource')}</TableHead>
+                    <TableHead>{t('recursos.offers.quantity')}</TableHead>
+                    <TableHead>{t('recursos.offers.priceHour')}</TableHead>
+                    <TableHead>{t('recursos.offers.sla')}</TableHead>
+                    <TableHead>{t('recursos.offers.status')}</TableHead>
                   </TableRow>
                 </TableHeader>
                 
@@ -260,7 +262,7 @@ export default function Recursos() {
                             {offer.quantity} {offer.unit}
                           </div>
                           <div className="text-xs text-muted-foreground">
-                            {offer.availability_pct}% disponível
+                            {offer.availability_pct}% {t('recursos.offers.available')}
                           </div>
                         </TableCell>
                         
@@ -295,10 +297,10 @@ export default function Recursos() {
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Clock className="h-5 w-5" />
-                Jobs Externos
+                {t('recursos.jobs.title')}
               </CardTitle>
               <p className="text-sm text-muted-foreground">
-                Trabalhos em execução de clientes externos
+                {t('recursos.jobs.subtitle')}
               </p>
             </CardHeader>
             
@@ -306,11 +308,11 @@ export default function Recursos() {
               <Table>
                 <TableHeader>
                   <TableRow>
-                    <TableHead>Job ID</TableHead>
-                    <TableHead>Tipo</TableHead>
-                    <TableHead>Duração</TableHead>
-                    <TableHead>Custo</TableHead>
-                    <TableHead>Status</TableHead>
+                    <TableHead>{t('recursos.jobs.jobId')}</TableHead>
+                    <TableHead>{t('recursos.jobs.type')}</TableHead>
+                    <TableHead>{t('recursos.jobs.duration')}</TableHead>
+                    <TableHead>{t('recursos.jobs.cost')}</TableHead>
+                    <TableHead>{t('recursos.jobs.status')}</TableHead>
                   </TableRow>
                 </TableHeader>
                 
@@ -338,7 +340,7 @@ export default function Recursos() {
                             {formatDuration(job.started_at, job.estimated_completion)}
                           </div>
                           <div className="text-xs text-muted-foreground">
-                            {job.hours}h total
+                            {job.hours}h {t('recursos.jobs.totalHours')}
                           </div>
                         </TableCell>
                         
@@ -384,7 +386,7 @@ export default function Recursos() {
                   
                   <div className="space-y-2">
                     <div className="flex justify-between text-sm">
-                      <span>Utilização:</span>
+                      <span>{t('recursos.utilization')}:</span>
                       <span className="font-medium">{utilizationPct.toFixed(1)}%</span>
                     </div>
                     
@@ -396,7 +398,7 @@ export default function Recursos() {
                     </div>
                     
                     <div className="flex justify-between text-xs text-muted-foreground">
-                      <span>{offer.quantity} {offer.unit} total</span>
+                      <span>{offer.quantity} {offer.unit} {t('recursos.total')}</span>
                       <span>${offer.price_per_hour.toFixed(3)}/h</span>
                     </div>
                   </div>

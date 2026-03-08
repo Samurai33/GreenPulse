@@ -6,6 +6,7 @@ import { EnergyAreaChart } from "@/components/charts/energy-area-chart";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { Badge } from "@/components/ui/badge";
+import { useTranslation } from "react-i18next";
 import { 
   Zap, 
   Leaf, 
@@ -34,6 +35,7 @@ interface EnergyData {
 }
 
 export default function Energia() {
+  const { t } = useTranslation();
   const [energyData, setEnergyData] = useState<EnergyData[]>([]);
   const [pueDaily, setPueDaily] = useState<{date: string; pue: number}[]>([]);
   const [loading, setLoading] = useState(true);
@@ -47,7 +49,7 @@ export default function Energia() {
         setEnergyData(energyJson.by_hour || []);
         setPueDaily(energyJson.pue_daily || []);
       } catch (error) {
-        console.error('Erro ao carregar dados de energia:', error);
+        console.error(t('energia.errors.loadData'), error);
       } finally {
         setLoading(false);
       }
@@ -91,18 +93,18 @@ export default function Energia() {
       <div className="space-y-6">
         {/* Page Header */}
         <div className="space-y-2">
-          <h1 className="text-3xl font-bold text-foreground">Energia & Carbono</h1>
+          <h1 className="text-3xl font-bold text-foreground">{t('energia.title')}</h1>
           <p className="text-muted-foreground">
-            Monitoramento energético e impacto ambiental do datacenter
+            {t('energia.subtitle')}
           </p>
         </div>
 
         {/* Energy KPIs */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           <KpiCard
-            title="Geração Solar"
+            title={t('energia.kpis.solarGeneration')}
             value={formatKwh(dailySummary.solar)}
-            subtitle="Energia limpa gerada hoje"
+            subtitle={t('energia.kpis.solarSubtitle')}
             icon={Sun}
             status="success"
             trend={{ direction: 'up', value: '+18%' }}
@@ -110,27 +112,27 @@ export default function Energia() {
           />
           
           <KpiCard
-            title="Energia da Rede"
+            title={t('energia.kpis.gridEnergy')}
             value={formatKwh(dailySummary.grid)}
-            subtitle="Consumo da rede elétrica"
+            subtitle={t('energia.kpis.gridSubtitle')}
             icon={Zap}
             status="warning"
             trend={{ direction: 'down', value: '-12%' }}
           />
           
           <KpiCard
-            title="Consumo IT"
+            title={t('energia.kpis.itConsumption')}
             value={formatKwh(dailySummary.it_load)}
-            subtitle="Carga dos equipamentos"
+            subtitle={t('energia.kpis.itSubtitle')}
             icon={Factory}
             status="info"
-            trend={{ direction: 'neutral', value: 'Estável' }}
+            trend={{ direction: 'neutral', value: t('energia.kpis.stable') }}
           />
           
           <KpiCard
-            title="Perdas/Overhead"
+            title={t('energia.kpis.overheadLosses')}
             value={formatKwh(dailySummary.overhead)}
-            subtitle="Refrigeração e auxiliares"
+            subtitle={t('energia.kpis.overheadSubtitle')}
             icon={Battery}
             status="info"
           />

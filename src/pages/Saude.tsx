@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts';
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { useTranslation } from "react-i18next";
 import { 
   Table,
   TableBody,
@@ -70,6 +71,7 @@ interface SreMetrics {
 }
 
 export default function Saude() {
+  const { t } = useTranslation();
   const [sreData, setSreData] = useState<SreMetrics | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -150,47 +152,47 @@ export default function Saude() {
       <div className="space-y-6">
         {/* Page Header */}
         <div className="space-y-2">
-          <h1 className="text-3xl font-bold text-foreground">Saúde do Servidor</h1>
+          <h1 className="text-3xl font-bold text-foreground">{t('saude.title')}</h1>
           <p className="text-muted-foreground">
-            Métricas SRE, Golden Signals e monitoramento de hardware
+            {t('saude.subtitle')}
           </p>
         </div>
 
         {/* Golden Signals KPIs */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           <KpiCard
-            title="Latência P95"
+            title={t('saude.kpis.latencyP95')}
             value={`${latest['Latência P95']}ms`}
-            subtitle="Tempo de resposta 95º percentil"
+            subtitle={t('saude.kpis.latencySubtitle')}
             icon={Clock}
             status={latest['Latência P95'] <= 150 ? 'success' : 'warning'}
             trend={{ 
               direction: latest['Latência P95'] <= 150 ? 'down' : 'up', 
-              value: latest['Latência P95'] <= 150 ? 'Boa' : 'Alta'
+              value: latest['Latência P95'] <= 150 ? t('saude.kpis.good') : t('saude.kpis.high')
             }}
             variant="featured"
           />
           
           <KpiCard
-            title="Taxa de Erros"
+            title={t('saude.kpis.errorRate')}
             value={`${latest['Taxa de Erros (%)'].toFixed(2)}%`}
-            subtitle="Requisições com falha"
+            subtitle={t('saude.kpis.errorSubtitle')}
             icon={AlertTriangle}
             status={latest['Taxa de Erros (%)'] <= 0.3 ? 'success' : 'critical'}
           />
           
           <KpiCard
-            title="Tráfego"
+            title={t('saude.kpis.traffic')}
             value={`${(latest['Tráfego (req/s)'] * 10).toFixed(0)} req/s`}
-            subtitle="Requisições por segundo"
+            subtitle={t('saude.kpis.trafficSubtitle')}
             icon={Activity}
             status="info"
           />
           
           <KpiCard
-            title="Saturação CPU"
+            title={t('saude.kpis.cpuSaturation')}
             value={`${latest['CPU (%)'].toFixed(1)}%`}
-            subtitle="Utilização do processador"
+            subtitle={t('saude.kpis.cpuSubtitle')}
             icon={Cpu}
             status={latest['CPU (%)'] <= 70 ? 'success' : latest['CPU (%)'] <= 85 ? 'warning' : 'critical'}
           />
@@ -199,26 +201,26 @@ export default function Saude() {
         {/* Reliability Metrics */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <KpiCard
-            title="Uptime 30d"
+            title={t('saude.kpis.uptime30d')}
             value={`${sreData.uptime_30d}%`}
-            subtitle="Disponibilidade do sistema"
+            subtitle={t('saude.kpis.uptimeSubtitle')}
             icon={CheckCircle}
             status="success"
             trend={{ direction: 'up', value: '+0.2%' }}
           />
           
           <KpiCard
-            title="MTBF"
+            title={t('saude.kpis.mtbf')}
             value={`${sreData.mtbf_hours}h`}
-            subtitle="Mean Time Between Failures"
+            subtitle={t('saude.kpis.mtbfSubtitle')}
             icon={Clock}
             status="info"
           />
           
           <KpiCard
-            title="MTTR Médio"
+            title={t('saude.kpis.mttr')}
             value={`${sreData.mttr_avg_min}min`}
-            subtitle="Mean Time To Recovery"
+            subtitle={t('saude.kpis.mttrSubtitle')}
             icon={Activity}
             status="success"
           />
@@ -229,8 +231,8 @@ export default function Saude() {
           {/* Latency Chart */}
           <Card>
             <CardHeader>
-              <CardTitle>Latência (ms)</CardTitle>
-              <p className="text-sm text-muted-foreground">P50 e P95 nas últimas 24 horas</p>
+              <CardTitle>{t('saude.charts.latency')}</CardTitle>
+              <p className="text-sm text-muted-foreground">{t('saude.charts.latencySubtitle')}</p>
             </CardHeader>
             <CardContent>
               <ResponsiveContainer width="100%" height={200}>
@@ -262,8 +264,8 @@ export default function Saude() {
           {/* Error Rate & Traffic */}
           <Card>
             <CardHeader>
-              <CardTitle>Erros & Tráfego</CardTitle>
-              <p className="text-sm text-muted-foreground">Taxa de erros e volume de requisições</p>
+              <CardTitle>{t('saude.charts.errorsTraffic')}</CardTitle>
+              <p className="text-sm text-muted-foreground">{t('saude.charts.errorsTrafficSubtitle')}</p>
             </CardHeader>
             <CardContent>
               <ResponsiveContainer width="100%" height={200}>
@@ -300,7 +302,7 @@ export default function Saude() {
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Thermometer className="h-5 w-5" />
-                Status do Hardware
+                {t('saude.hardware.status')}
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
@@ -308,12 +310,12 @@ export default function Saude() {
               <div className="flex items-center justify-between p-3 rounded-lg bg-muted/50">
                 <div className="flex items-center gap-2">
                   <Cpu className="h-4 w-4" />
-                  <span className="font-medium">Temperatura CPU</span>
+                  <span className="font-medium">{t('saude.hardware.cpuTemp')}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span>{latestHardware.cpu_temp}°C</span>
                   <Badge variant={latestHardware.cpu_temp <= 70 ? 'default' : 'destructive'}>
-                    {latestHardware.cpu_temp <= 70 ? 'OK' : 'ALTA'}
+                    {latestHardware.cpu_temp <= 70 ? t('saude.hardware.ok') : t('saude.hardware.high')}
                   </Badge>
                 </div>
               </div>
@@ -323,7 +325,7 @@ export default function Saude() {
                 <div className="flex items-center justify-between p-3 rounded-lg bg-muted/50">
                   <div className="flex items-center gap-2">
                     <Network className="h-4 w-4" />
-                    <span className="font-medium">Jitter de Rede</span>
+                    <span className="font-medium">{t('saude.hardware.networkJitter')}</span>
                   </div>
                   <span>{latestHardware.jitter.toFixed(1)}ms</span>
                 </div>
@@ -331,7 +333,7 @@ export default function Saude() {
                 <div className="flex items-center justify-between p-3 rounded-lg bg-muted/50">
                   <div className="flex items-center gap-2">
                     <Network className="h-4 w-4" />
-                    <span className="font-medium">Perda de Pacotes</span>
+                    <span className="font-medium">{t('saude.hardware.packetLoss')}</span>
                   </div>
                   <span>{(latestHardware.packet_loss * 100).toFixed(2)}%</span>
                 </div>
@@ -346,17 +348,17 @@ export default function Saude() {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <HardDrive className="h-5 w-5" />
-                  Status dos Discos
+                  {t('saude.hardware.disks')}
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <Table>
                   <TableHeader>
                     <TableRow>
-                      <TableHead>Disco</TableHead>
-                      <TableHead>S.M.A.R.T.</TableHead>
-                      <TableHead>Temp</TableHead>
-                      <TableHead>Desgaste</TableHead>
+                      <TableHead>{t('saude.hardware.disk')}</TableHead>
+                      <TableHead>{t('saude.hardware.smart')}</TableHead>
+                      <TableHead>{t('saude.hardware.temp')}</TableHead>
+                      <TableHead>{t('saude.hardware.wear')}</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
@@ -382,7 +384,7 @@ export default function Saude() {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Fan className="h-5 w-5" />
-                  Status dos Ventiladores
+                  {t('saude.hardware.fans')}
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -411,15 +413,15 @@ export default function Saude() {
               <div>
                 <CardTitle className="flex items-center gap-2">
                   <AlertTriangle className="h-5 w-5" />
-                  Histórico de Incidentes
+                  {t('saude.incidents.title')}
                 </CardTitle>
                 <p className="text-sm text-muted-foreground">
-                  Últimos incidentes e tempo de resolução
+                  {t('saude.incidents.subtitle')}
                 </p>
               </div>
               <Button variant="outline" size="sm">
                 <FileText className="h-4 w-4 mr-2" />
-                Runbooks
+                {t('saude.incidents.runbooks')}
               </Button>
             </div>
           </CardHeader>
@@ -428,13 +430,13 @@ export default function Saude() {
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>ID</TableHead>
-                  <TableHead>Severidade</TableHead>
-                  <TableHead>Título</TableHead>
-                  <TableHead>Iniciado</TableHead>
-                  <TableHead>Status</TableHead>
-                  <TableHead>MTTR</TableHead>
-                  <TableHead>Ações</TableHead>
+                  <TableHead>{t('saude.incidents.id')}</TableHead>
+                  <TableHead>{t('saude.incidents.severity')}</TableHead>
+                  <TableHead>{t('saude.incidents.titleCol')}</TableHead>
+                  <TableHead>{t('saude.incidents.started')}</TableHead>
+                  <TableHead>{t('saude.incidents.status')}</TableHead>
+                  <TableHead>{t('saude.incidents.mttr')}</TableHead>
+                  <TableHead>{t('saude.incidents.actions')}</TableHead>
                 </TableRow>
               </TableHeader>
               
@@ -467,7 +469,7 @@ export default function Saude() {
                         variant={incident.status === 'resolved' ? 'default' : 'outline'}
                         className="capitalize"
                       >
-                        {incident.status}
+                        {incident.status === 'resolved' ? t('saude.incidents.resolved') : incident.status}
                       </Badge>
                     </TableCell>
                     

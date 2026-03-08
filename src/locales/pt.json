@@ -1,0 +1,296 @@
+{
+  "nav": {
+    "dashboard": "Visão Geral",
+    "energia": "Energia & Carbono",
+    "recursos": "Recursos Ociosos",
+    "relatorios": "Relatórios",
+    "saude": "Saúde do Servidor",
+    "mainNavigation": "Navegação Principal",
+    "descriptions": {
+      "dashboard": "Dashboard principal",
+      "energia": "Monitoramento energético",
+      "recursos": "Marketplace de recursos",
+      "relatorios": "Exportação e análises",
+      "saude": "Métricas SRE e hardware"
+    }
+  },
+  "dashboard": {
+    "title": "Visão Geral",
+    "subtitle": "Dashboard principal do datacenter sustentável VoltEra",
+    "kpis": {
+      "uptime30d": "Uptime 30d",
+      "uptimeSubtitle": "Disponibilidade do sistema",
+      "pueCurrent": "PUE Atual",
+      "pueTarget": "Meta: ≤1.30",
+      "pueGood": "Boa",
+      "pueHigh": "Alta",
+      "kwhToday": "kWh Hoje",
+      "consumptionSubtitle": "Consumo líquido total",
+      "stable": "Estável",
+      "co2AvoidedToday": "CO₂ Evitado Hoje",
+      "environmentalBenefit": "Benefício ambiental",
+      "carbonCreditsYtd": "Créditos Estimados YTD",
+      "carbonCreditsSubtitle": "tCO₂e (não oficial)",
+      "latencyP95": "Latência p95",
+      "responseTime": "Tempo de resposta",
+      "errorRate": "Taxa de Erros",
+      "failedRequests": "Requisições com falha",
+      "traffic": "Tráfego",
+      "requestsPerSecond": "Requisições por segundo",
+      "cpuSaturation": "Saturação CPU",
+      "processorUtilization": "Utilização do processador"
+    },
+    "marketplace": {
+      "title": "Marketplace de Recursos",
+      "availableSlots": "Slots Disponíveis",
+      "slotsSubtitle": "CPU/GPU/Storage",
+      "utilization": "Utilização",
+      "rentedResources": "Recursos alugados",
+      "estimatedRevenue": "Receita Estimada",
+      "monthlySimulated": "Mensal (simulado)",
+      "activeClients": "Clientes Ativos",
+      "activeRequests": "Solicitações ativas"
+    },
+    "systemStatus": {
+      "title": "Status do Sistema",
+      "solarGeneration": "Geração Solar",
+      "active": "Ativa",
+      "operationMode": "Modo Operação",
+      "performance": "Performance",
+      "maintenance": "Manutenção",
+      "scheduled": "Agendada 02:00"
+    },
+    "errors": {
+      "loadData": "Erro ao carregar dados:"
+    }
+  },
+  "energia": {
+    "title": "Energia & Carbono",
+    "subtitle": "Monitoramento energético e impacto ambiental do datacenter",
+    "kpis": {
+      "solarGeneration": "Geração Solar",
+      "solarSubtitle": "Energia limpa gerada hoje",
+      "gridEnergy": "Energia da Rede",
+      "gridSubtitle": "Consumo da rede elétrica",
+      "itConsumption": "Consumo IT",
+      "itSubtitle": "Carga dos equipamentos",
+      "overheadLosses": "Perdas/Overhead",
+      "overheadSubtitle": "Refrigeração e auxiliares",
+      "stable": "Estável"
+    },
+    "errors": {
+      "loadData": "Erro ao carregar dados de energia:"
+    }
+  },
+  "saude": {
+    "title": "Saúde do Servidor",
+    "subtitle": "Métricas SRE, Golden Signals e monitoramento de hardware",
+    "kpis": {
+      "latencyP95": "Latência P95",
+      "latencySubtitle": "Tempo de resposta 95º percentil",
+      "errorRate": "Taxa de Erros",
+      "errorSubtitle": "Requisições com falha",
+      "traffic": "Tráfego",
+      "trafficSubtitle": "Requisições por segundo",
+      "cpuSaturation": "Saturação CPU",
+      "cpuSubtitle": "Utilização do processador",
+      "uptime30d": "Uptime 30d",
+      "uptimeSubtitle": "Disponibilidade do sistema",
+      "mtbf": "MTBF",
+      "mtbfSubtitle": "Mean Time Between Failures",
+      "mttr": "MTTR Médio",
+      "mttrSubtitle": "Mean Time To Recovery",
+      "good": "Boa",
+      "high": "Alta"
+    },
+    "charts": {
+      "latency": "Latência (ms)",
+      "latencySubtitle": "P50 e P95 nas últimas 24 horas",
+      "errorsTraffic": "Erros & Tráfego",
+      "errorsTrafficSubtitle": "Taxa de erros e volume de requisições"
+    },
+    "hardware": {
+      "status": "Status do Hardware",
+      "cpuTemp": "Temperatura CPU",
+      "high": "ALTA",
+      "ok": "OK",
+      "networkJitter": "Jitter de Rede",
+      "packetLoss": "Perda de Pacotes",
+      "disks": "Status dos Discos",
+      "disk": "Disco",
+      "smart": "S.M.A.R.T.",
+      "temp": "Temp",
+      "wear": "Desgaste",
+      "fans": "Status dos Ventiladores",
+      "rpm": "RPM"
+    },
+    "incidents": {
+      "title": "Histórico de Incidentes",
+      "subtitle": "Últimos incidentes e tempo de resolução",
+      "runbooks": "Runbooks",
+      "id": "ID",
+      "severity": "Severidade",
+      "titleCol": "Título",
+      "started": "Iniciado",
+      "status": "Status",
+      "mttr": "MTTR",
+      "actions": "Ações",
+      "resolved": "resolvido"
+    }
+  },
+  "recursos": {
+    "title": "Recursos Ociosos",
+    "subtitle": "Marketplace para compartilhamento de CPU, GPU e armazenamento",
+    "disclaimer": "Conceito: Inspirado em volunteer/idle computing (BOINC). Esta é uma simulação educativa.",
+    "kpis": {
+      "availableSlots": "Slots Disponíveis",
+      "slotsSubtitle": "Total de recursos",
+      "utilization": "Utilização",
+      "utilizationSubtitle": "Recursos em uso",
+      "estimatedRevenue": "Receita Estimada",
+      "revenueSubtitle": "Mensal (simulado)",
+      "activeClients": "Clientes Ativos",
+      "clientsSubtitle": "Solicitações ativas"
+    },
+    "actions": {
+      "publishOffer": "Publicar Oferta",
+      "rentResource": "Alugar Recurso",
+      "manageContracts": "Gerenciar Contratos"
+    },
+    "offers": {
+      "title": "Ofertas Disponíveis",
+      "subtitle": "Recursos que você está oferecendo no marketplace",
+      "resource": "Recurso",
+      "quantity": "Quantidade",
+      "priceHour": "Preço/h",
+      "sla": "SLA",
+      "status": "Status",
+      "available": "disponível"
+    },
+    "jobs": {
+      "title": "Jobs Externos",
+      "subtitle": "Trabalhos em execução de clientes externos",
+      "jobId": "Job ID",
+      "type": "Tipo",
+      "duration": "Duração",
+      "cost": "Custo",
+      "status": "Status",
+      "totalHours": "total horas"
+    },
+    "utilization": "Utilização:",
+    "total": "total"
+  },
+  "relatorios": {
+    "title": "Relatórios",
+    "subtitle": "Exportação de dados e geração de relatórios para análise",
+    "controls": {
+      "lastDay": "Último dia",
+      "last7Days": "Últimos 7 dias",
+      "last30Days": "Últimos 30 dias",
+      "last90Days": "Últimos 90 dias",
+      "lastYear": "Último ano"
+    },
+    "actions": {
+      "generateSnapshot": "Gerar Snapshot PDF",
+      "viewData": "Visualizar Dados"
+    },
+    "types": {
+      "energy": {
+        "title": "Relatório de Energia",
+        "description": "Dados de consumo, geração solar e PUE diário"
+      },
+      "co2": {
+        "title": "Relatório de CO₂ Evitado",
+        "description": "Impacto ambiental e créditos de carbono estimados"
+      },
+      "pue": {
+        "title": "Histórico PUE",
+        "description": "Evolução da eficiência energética (30 dias)"
+      },
+      "incidents": {
+        "title": "Relatório de Incidentes",
+        "description": "Log de incidentes, MTTR e MTBF"
+      },
+      "marketplace": {
+        "title": "Marketplace de Recursos",
+        "description": "Ofertas, jobs executados e receita"
+      },
+      "sre": {
+        "title": "Golden Signals SRE",
+        "description": "Métricas de latência, erros e saturação"
+      }
+    },
+    "summary": {
+      "title": "Resumo de Dados Disponíveis",
+      "energyData": "Dados de Energia",
+      "energyItems": [
+        "Geração solar horária",
+        "Consumo da rede",
+        "Carga IT e overhead",
+        "PUE calculado"
+      ],
+      "environmentalData": "Dados Ambientais",
+      "environmentalItems": [
+        "CO₂ evitado calculado",
+        "Estimativas de créditos",
+        "Fatores de emissão",
+        "Métricas de eficiência"
+      ],
+      "operationalData": "Dados Operacionais",
+      "operationalItems": [
+        "Golden Signals SRE",
+        "Status de hardware",
+        "Log de incidentes",
+        "Marketplace de recursos"
+      ]
+    },
+    "warnings": {
+      "title": "⚠️ Avisos Importantes",
+      "items": [
+        "Todos os dados são simulados para fins de demonstração",
+        "Créditos de carbono são estimativas didáticas sem valor de mercado",
+        "Para uso oficial, consulte um inventário de GHG certificado",
+        "Relatórios não substituem auditorias energéticas profissionais"
+      ]
+    },
+    "errors": {
+      "generateSnapshot": "Erro ao gerar snapshot",
+      "retry": "Tente novamente em alguns momentos."
+    }
+  },
+  "alerts": {
+    "title": "Alertas Recentes",
+    "unacknowledged": "não reconhecidos de",
+    "total": "total",
+    "status": "Status",
+    "alert": "Alerta",
+    "source": "Origem",
+    "time": "Horário",
+    "actions": "Ações",
+    "actionsMap": {
+      "restart_inverter": "Reiniciar Inversor",
+      "contact_technician": "Contatar Técnico",
+      "schedule_replacement": "Agendar Substituição",
+      "backup_data": "Backup de Dados",
+      "check_routing": "Verificar Roteamento",
+      "monitor": "Monitorar",
+      "increase_fan_speed": "Aumentar Velocidade do Fan",
+      "check_cooling": "Verificar Refrigeração",
+      "replace_fan": "Substituir Fan",
+      "enable_backup_cooling": "Ativar Refrigeração de Backup",
+      "approve_request": "Aprovar Solicitação",
+      "allocate_resources": "Alocar Recursos",
+      "optimize_cooling": "Otimizar Refrigeração",
+      "redistribute_load": "Redistribuir Carga",
+      "confirm_maintenance": "Confirmar Manutenção",
+      "notify_users": "Notificar Usuários"
+    }
+  },
+  "common": {
+    "loading": "Carregando...",
+    "error": "Erro",
+    "save": "Salvar",
+    "cancel": "Cancelar",
+    "language": "Idioma"
+  }
+}

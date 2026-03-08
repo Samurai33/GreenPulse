@@ -3,6 +3,7 @@ import { DashboardLayout } from "@/components/layout/dashboard-layout";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { useTranslation } from "react-i18next";
 import { 
   Select,
   SelectContent,
@@ -30,55 +31,56 @@ interface ReportConfig {
   icon: any;
 }
 
-const reportTypes: ReportConfig[] = [
-  {
-    type: 'energy',
-    title: 'Relatório de Energia',
-    description: 'Dados de consumo, geração solar e PUE diário',
-    formats: ['CSV', 'JSON'],
-    icon: FileSpreadsheet
-  },
-  {
-    type: 'co2',
-    title: 'Relatório de CO₂ Evitado',
-    description: 'Impacto ambiental e créditos de carbono estimados',
-    formats: ['CSV', 'JSON'],
-    icon: FileText
-  },
-  {
-    type: 'pue',
-    title: 'Histórico PUE',
-    description: 'Evolução da eficiência energética (30 dias)',
-    formats: ['CSV', 'JSON'],
-    icon: FileSpreadsheet
-  },
-  {
-    type: 'incidents',
-    title: 'Relatório de Incidentes',
-    description: 'Log de incidentes, MTTR e MTBF',
-    formats: ['CSV', 'JSON'],
-    icon: FileText
-  },
-  {
-    type: 'marketplace',
-    title: 'Marketplace de Recursos',
-    description: 'Ofertas, jobs executados e receita',
-    formats: ['CSV', 'JSON'],
-    icon: FileSpreadsheet
-  },
-  {
-    type: 'sre',
-    title: 'Golden Signals SRE',
-    description: 'Métricas de latência, erros e saturação',
-    formats: ['CSV', 'JSON'],
-    icon: FileText
-  }
-];
-
 export default function Relatorios() {
+  const { t } = useTranslation();
   const { toast } = useToast();
   const [selectedPeriod, setSelectedPeriod] = useState('30d');
   const [generating, setGenerating] = useState<string | null>(null);
+
+  const reportTypes: ReportConfig[] = [
+    {
+      type: 'energy',
+      title: t('relatorios.types.energy.title'),
+      description: t('relatorios.types.energy.description'),
+      formats: ['CSV', 'JSON'],
+      icon: FileSpreadsheet
+    },
+    {
+      type: 'co2',
+      title: t('relatorios.types.co2.title'),
+      description: t('relatorios.types.co2.description'),
+      formats: ['CSV', 'JSON'],
+      icon: FileText
+    },
+    {
+      type: 'pue',
+      title: t('relatorios.types.pue.title'),
+      description: t('relatorios.types.pue.description'),
+      formats: ['CSV', 'JSON'],
+      icon: FileSpreadsheet
+    },
+    {
+      type: 'incidents',
+      title: t('relatorios.types.incidents.title'),
+      description: t('relatorios.types.incidents.description'),
+      formats: ['CSV', 'JSON'],
+      icon: FileText
+    },
+    {
+      type: 'marketplace',
+      title: t('relatorios.types.marketplace.title'),
+      description: t('relatorios.types.marketplace.description'),
+      formats: ['CSV', 'JSON'],
+      icon: FileSpreadsheet
+    },
+    {
+      type: 'sre',
+      title: t('relatorios.types.sre.title'),
+      description: t('relatorios.types.sre.description'),
+      formats: ['CSV', 'JSON'],
+      icon: FileText
+    }
+  ];
 
   const handleGenerateReport = async (reportType: string, format: string) => {
     setGenerating(`${reportType}-${format}`);
@@ -212,9 +214,9 @@ export default function Relatorios() {
         {/* Page Header */}
         <div className="space-y-4">
           <div className="space-y-2">
-            <h1 className="text-3xl font-bold text-foreground">Relatórios</h1>
+            <h1 className="text-3xl font-bold text-foreground">{t('relatorios.title')}</h1>
             <p className="text-muted-foreground">
-              Exportação de dados e geração de relatórios para análise
+              {t('relatorios.subtitle')}
             </p>
           </div>
 
@@ -227,11 +229,11 @@ export default function Relatorios() {
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="1d">Último dia</SelectItem>
-                  <SelectItem value="7d">Últimos 7 dias</SelectItem>
-                  <SelectItem value="30d">Últimos 30 dias</SelectItem>
-                  <SelectItem value="90d">Últimos 90 dias</SelectItem>
-                  <SelectItem value="1y">Último ano</SelectItem>
+                  <SelectItem value="1d">{t('relatorios.controls.lastDay')}</SelectItem>
+                  <SelectItem value="7d">{t('relatorios.controls.last7Days')}</SelectItem>
+                  <SelectItem value="30d">{t('relatorios.controls.last30Days')}</SelectItem>
+                  <SelectItem value="90d">{t('relatorios.controls.last90Days')}</SelectItem>
+                  <SelectItem value="1y">{t('relatorios.controls.lastYear')}</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -247,12 +249,12 @@ export default function Relatorios() {
                 ) : (
                   <Printer className="h-4 w-4 mr-2" />
                 )}
-                Gerar Snapshot PDF
+                {t('relatorios.actions.generateSnapshot')}
               </Button>
               
               <Button variant="outline">
                 <Eye className="h-4 w-4 mr-2" />
-                Visualizar Dados
+                {t('relatorios.actions.viewData')}
               </Button>
             </div>
           </div>
@@ -321,13 +323,13 @@ export default function Relatorios() {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <FileText className="h-5 w-5" />
-              Resumo de Dados Disponíveis
+              {t('relatorios.summary.title')}
             </CardTitle>
             <p className="text-sm text-muted-foreground">
-              Período selecionado: {selectedPeriod === '1d' ? 'Último dia' : 
-                                   selectedPeriod === '7d' ? 'Últimos 7 dias' :
-                                   selectedPeriod === '30d' ? 'Últimos 30 dias' :
-                                   selectedPeriod === '90d' ? 'Últimos 90 dias' : 'Último ano'}
+              {t('relatorios.summary.period')}: {selectedPeriod === '1d' ? t('relatorios.controls.lastDay') : 
+                                   selectedPeriod === '7d' ? t('relatorios.controls.last7Days') :
+                                   selectedPeriod === '30d' ? t('relatorios.controls.last30Days') :
+                                   selectedPeriod === '90d' ? t('relatorios.controls.last90Days') : t('relatorios.controls.lastYear')}
             </p>
           </CardHeader>
           
@@ -337,13 +339,13 @@ export default function Relatorios() {
               <div className="space-y-2">
                 <h4 className="font-medium flex items-center gap-2">
                   <div className="h-2 w-2 bg-success rounded-full" />
-                  Dados de Energia
+                  {t('relatorios.summary.energyData')}
                 </h4>
                 <ul className="text-sm text-muted-foreground space-y-1">
-                  <li>• Geração solar horária</li>
-                  <li>• Consumo da rede</li>
-                  <li>• Carga IT e overhead</li>
-                  <li>• PUE calculado</li>
+                  <li>• {t('relatorios.summary.energyItems.0')}</li>
+                  <li>• {t('relatorios.summary.energyItems.1')}</li>
+                  <li>• {t('relatorios.summary.energyItems.2')}</li>
+                  <li>• {t('relatorios.summary.energyItems.3')}</li>
                 </ul>
               </div>
 
@@ -351,13 +353,13 @@ export default function Relatorios() {
               <div className="space-y-2">
                 <h4 className="font-medium flex items-center gap-2">
                   <div className="h-2 w-2 bg-primary rounded-full" />
-                  Dados Ambientais
+                  {t('relatorios.summary.environmentalData')}
                 </h4>
                 <ul className="text-sm text-muted-foreground space-y-1">
-                  <li>• CO₂ evitado calculado</li>
-                  <li>• Estimativas de créditos</li>
-                  <li>• Fatores de emissão</li>
-                  <li>• Métricas de eficiência</li>
+                  <li>• {t('relatorios.summary.environmentalItems.0')}</li>
+                  <li>• {t('relatorios.summary.environmentalItems.1')}</li>
+                  <li>• {t('relatorios.summary.environmentalItems.2')}</li>
+                  <li>• {t('relatorios.summary.environmentalItems.3')}</li>
                 </ul>
               </div>
 
@@ -365,25 +367,25 @@ export default function Relatorios() {
               <div className="space-y-2">
                 <h4 className="font-medium flex items-center gap-2">
                   <div className="h-2 w-2 bg-accent rounded-full" />
-                  Dados Operacionais
+                  {t('relatorios.summary.operationalData')}
                 </h4>
                 <ul className="text-sm text-muted-foreground space-y-1">
-                  <li>• Golden Signals SRE</li>
-                  <li>• Status de hardware</li>
-                  <li>• Log de incidentes</li>
-                  <li>• Marketplace de recursos</li>
+                  <li>• {t('relatorios.summary.operationalItems.0')}</li>
+                  <li>• {t('relatorios.summary.operationalItems.1')}</li>
+                  <li>• {t('relatorios.summary.operationalItems.2')}</li>
+                  <li>• {t('relatorios.summary.operationalItems.3')}</li>
                 </ul>
               </div>
             </div>
 
             {/* Disclaimers */}
             <div className="mt-6 p-4 bg-warning/10 border border-warning/30 rounded-lg">
-              <h4 className="font-medium text-warning mb-2">⚠️ Avisos Importantes</h4>
+              <h4 className="font-medium text-warning mb-2">{t('relatorios.warnings.title')}</h4>
               <ul className="text-sm text-muted-foreground space-y-1">
-                <li>• Todos os dados são simulados para fins de demonstração</li>
-                <li>• Créditos de carbono são estimativas didáticas sem valor de mercado</li>
-                <li>• Para uso oficial, consulte um inventário de GHG certificado</li>
-                <li>• Relatórios não substituem auditorias energéticas profissionais</li>
+                <li>• {t('relatorios.warnings.items.0')}</li>
+                <li>• {t('relatorios.warnings.items.1')}</li>
+                <li>• {t('relatorios.warnings.items.2')}</li>
+                <li>• {t('relatorios.warnings.items.3')}</li>
               </ul>
             </div>
           </CardContent>

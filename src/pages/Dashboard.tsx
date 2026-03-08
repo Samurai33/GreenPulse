@@ -4,6 +4,7 @@ import { KpiCard } from "@/components/ui/kpi-card";
 import { PueGauge } from "@/components/charts/pue-gauge";
 import { EnergyAreaChart } from "@/components/charts/energy-area-chart";
 import { AlertsTable } from "@/components/alerts/alerts-table";
+import { useTranslation } from "react-i18next";
 import { 
   Activity, 
   Zap, 
@@ -62,6 +63,7 @@ interface MarketplaceSummary {
 }
 
 export default function Dashboard() {
+  const { t } = useTranslation();
   const [energyData, setEnergyData] = useState<EnergyData[]>([]);
   const [sreMetrics, setSreMetrics] = useState<SreMetrics | null>(null);
   const [alerts, setAlerts] = useState<Alert[]>([]);
@@ -90,7 +92,7 @@ export default function Dashboard() {
         setAlerts(alertsData);
         setMarketplaceSummary(marketplaceData.summary);
       } catch (error) {
-        console.error('Erro ao carregar dados:', error);
+        console.error(t('dashboard.errors.loadData'), error);
       } finally {
         setLoading(false);
       }
@@ -144,18 +146,18 @@ export default function Dashboard() {
       <div className="space-y-6">
         {/* Page Header */}
         <div className="space-y-2">
-          <h1 className="text-3xl font-bold text-foreground">Visão Geral</h1>
+          <h1 className="text-3xl font-bold text-foreground">{t('dashboard.title')}</h1>
           <p className="text-muted-foreground">
-            Dashboard principal do datacenter sustentável VoltEra
+            {t('dashboard.subtitle')}
           </p>
         </div>
 
         {/* KPI Cards Row */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
           <KpiCard
-            title="Uptime 30d"
+            title={t('dashboard.kpis.uptime30d')}
             value={formatPercentage(sreMetrics?.uptime_30d || 99.7)}
-            subtitle="Disponibilidade do sistema"
+            subtitle={t('dashboard.kpis.uptimeSubtitle')}
             icon={Activity}
             status="success"
             trend={{ direction: 'up', value: '+0.2%' }}
@@ -163,32 +165,32 @@ export default function Dashboard() {
           />
           
           <KpiCard
-            title="PUE Atual"
+            title={t('dashboard.kpis.pueCurrent')}
             value={formatPUE(currentPUE)}
-            subtitle={`Meta: ≤1.30`}
+            subtitle={t('dashboard.kpis.pueTarget')}
             icon={Zap}
             status={currentPUE <= 1.3 ? 'success' : 'warning'}
             trend={{ 
               direction: currentPUE <= 1.3 ? 'down' : 'up', 
-              value: currentPUE <= 1.3 ? 'Boa' : 'Alta'
+              value: currentPUE <= 1.3 ? t('dashboard.kpis.pueGood') : t('dashboard.kpis.pueHigh')
             }}
             variant="compact"
           />
           
           <KpiCard
-            title="kWh Hoje"
+            title={t('dashboard.kpis.kwhToday')}
             value={formatKwh(todayTotals.consumption)}
-            subtitle="Consumo líquido total"
+            subtitle={t('dashboard.kpis.consumptionSubtitle')}
             icon={Zap}
             status="info"
-            trend={{ direction: 'neutral', value: 'Estável' }}
+            trend={{ direction: 'neutral', value: t('dashboard.kpis.stable') }}
             variant="compact"
           />
           
           <KpiCard
-            title="CO₂ Evitado Hoje"
+            title={t('dashboard.kpis.co2AvoidedToday')}
             value={formatCO2(todayCO2Avoided)}
-            subtitle="Benefício ambiental"
+            subtitle={t('dashboard.kpis.environmentalBenefit')}
             icon={Leaf}
             status="success"
             trend={{ direction: 'up', value: '+12%' }}
@@ -196,9 +198,9 @@ export default function Dashboard() {
           />
           
           <KpiCard
-            title="Créditos Estimados YTD"
+            title={t('dashboard.kpis.carbonCreditsYtd')}
             value={carbonCredits.toFixed(2)}
-            subtitle="tCO₂e (não oficial)"
+            subtitle={t('dashboard.kpis.carbonCreditsSubtitle')}
             icon={Award}
             status="info"
             trend={{ direction: 'up', value: '+5.2%' }}
@@ -209,36 +211,36 @@ export default function Dashboard() {
         {/* Golden Signals Row */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           <KpiCard
-            title="Latência p95"
+            title={t('dashboard.kpis.latencyP95')}
             value={`${currentLatency}ms`}
-            subtitle="Tempo de resposta"
+            subtitle={t('dashboard.kpis.responseTime')}
             icon={Clock}
             status={currentLatency <= 150 ? 'success' : 'warning'}
             variant="compact"
           />
           
           <KpiCard
-            title="Taxa de Erros"
+            title={t('dashboard.kpis.errorRate')}
             value={formatPercentage(currentErrors)}
-            subtitle="Requisições com falha"
+            subtitle={t('dashboard.kpis.failedRequests')}
             icon={TrendingUp}
             status={currentErrors <= 0.3 ? 'success' : 'critical'}
             variant="compact"
           />
           
           <KpiCard
-            title="Tráfego"
+            title={t('dashboard.kpis.traffic')}
             value={`${currentTraffic} req/s`}
-            subtitle="Requisições por segundo"
+            subtitle={t('dashboard.kpis.requestsPerSecond')}
             icon={Activity}
             status="info"
             variant="compact"
           />
           
           <KpiCard
-            title="Saturação CPU"
+            title={t('dashboard.kpis.cpuSaturation')}
             value={formatPercentage(currentCPU)}
-            subtitle="Utilização do processador"
+            subtitle={t('dashboard.kpis.processorUtilization')}
             icon={Server}
             status={currentCPU <= 70 ? 'success' : currentCPU <= 85 ? 'warning' : 'critical'}
             variant="compact"
@@ -262,39 +264,39 @@ export default function Dashboard() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Marketplace Summary */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Marketplace de Recursos</h3>
+            <h3 className="text-lg font-semibold">{t('dashboard.marketplace.title')}</h3>
             <div className="grid grid-cols-2 gap-4">
               <KpiCard
-                title="Slots Disponíveis"
+                title={t('dashboard.marketplace.availableSlots')}
                 value={marketplaceSummary?.total_slots_available || 0}
-                subtitle="CPU/GPU/Storage"
+                subtitle={t('dashboard.marketplace.slotsSubtitle')}
                 icon={Server}
                 status="info"
                 variant="compact"
               />
               
               <KpiCard
-                title="Utilização"
+                title={t('dashboard.marketplace.utilization')}
                 value={formatPercentage(marketplaceSummary?.utilization_pct || 0)}
-                subtitle="Recursos alugados"
+                subtitle={t('dashboard.marketplace.rentedResources')}
                 icon={TrendingUp}
                 status="success"
                 variant="compact"
               />
               
               <KpiCard
-                title="Receita Estimada"
+                title={t('dashboard.marketplace.estimatedRevenue')}
                 value={`$${marketplaceSummary?.estimated_revenue_monthly?.toFixed(0) || 0}`}
-                subtitle="Mensal (simulado)"
+                subtitle={t('dashboard.marketplace.monthlySimulated')}
                 icon={DollarSign}
                 status="success"
                 variant="compact"
               />
               
               <KpiCard
-                title="Clientes Ativos"
+                title={t('dashboard.marketplace.activeClients')}
                 value="12"
-                subtitle="Solicitações ativas"
+                subtitle={t('dashboard.marketplace.activeRequests')}
                 icon={Activity}
                 status="info"
                 variant="compact"
@@ -304,21 +306,21 @@ export default function Dashboard() {
           
           {/* Quick Actions & Status */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Status do Sistema</h3>
+            <h3 className="text-lg font-semibold">{t('dashboard.systemStatus.title')}</h3>
             <div className="space-y-2">
               <div className="flex items-center justify-between p-3 rounded-lg bg-success/10 border border-success/30">
-                <span className="text-sm font-medium">Geração Solar</span>
-                <span className="text-success font-semibold">Ativa</span>
+                <span className="text-sm font-medium">{t('dashboard.systemStatus.solarGeneration')}</span>
+                <span className="text-success font-semibold">{t('dashboard.systemStatus.active')}</span>
               </div>
               
               <div className="flex items-center justify-between p-3 rounded-lg bg-primary/10 border border-primary/30">
-                <span className="text-sm font-medium">Modo Operação</span>
-                <span className="text-primary font-semibold">Performance</span>
+                <span className="text-sm font-medium">{t('dashboard.systemStatus.operationMode')}</span>
+                <span className="text-primary font-semibold">{t('dashboard.systemStatus.performance')}</span>
               </div>
               
               <div className="flex items-center justify-between p-3 rounded-lg bg-warning/10 border border-warning/30">
-                <span className="text-sm font-medium">Manutenção</span>
-                <span className="text-warning font-semibold">Agendada 02:00</span>
+                <span className="text-sm font-medium">{t('dashboard.systemStatus.maintenance')}</span>
+                <span className="text-warning font-semibold">{t('dashboard.systemStatus.scheduled')}</span>
               </div>
             </div>
           </div>

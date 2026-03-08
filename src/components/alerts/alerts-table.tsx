@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { useTranslation } from "react-i18next";
 import { 
   Table,
   TableBody,
@@ -35,6 +36,7 @@ interface AlertsTableProps {
 }
 
 export function AlertsTable({ alerts, className }: AlertsTableProps) {
+  const { t } = useTranslation();
   const getSeverityIcon = (severity: string) => {
     switch (severity) {
       case 'critical':
@@ -69,25 +71,7 @@ export function AlertsTable({ alerts, className }: AlertsTableProps) {
   };
 
   const getActionText = (action: string) => {
-    const actionMap: Record<string, string> = {
-      'restart_inverter': 'Reiniciar Inversor',
-      'contact_technician': 'Contatar Técnico',
-      'schedule_replacement': 'Agendar Substituição',
-      'backup_data': 'Backup de Dados',
-      'check_routing': 'Verificar Roteamento',
-      'monitor': 'Monitorar',
-      'increase_fan_speed': 'Aumentar Velocidade do Fan',
-      'check_cooling': 'Verificar Refrigeração',
-      'replace_fan': 'Substituir Fan',
-      'enable_backup_cooling': 'Ativar Refrigeração de Backup',
-      'approve_request': 'Aprovar Solicitação',
-      'allocate_resources': 'Alocar Recursos',
-      'optimize_cooling': 'Otimizar Refrigeração',
-      'redistribute_load': 'Redistribuir Carga',
-      'confirm_maintenance': 'Confirmar Manutenção',
-      'notify_users': 'Notificar Usuários'
-    };
-    return actionMap[action] || action;
+    return t(`alerts.actionsMap.${action}`, action);
   };
 
   return (
@@ -95,10 +79,10 @@ export function AlertsTable({ alerts, className }: AlertsTableProps) {
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
           <Bell className="h-5 w-5" />
-          Alertas Recentes
+          {t('alerts.title')}
         </CardTitle>
         <p className="text-sm text-muted-foreground">
-          {alerts.filter(a => !a.acknowledged).length} não reconhecidos de {alerts.length} total
+          {alerts.filter(a => !a.acknowledged).length} {t('alerts.unacknowledged')} {alerts.length} {t('alerts.total')}
         </p>
       </CardHeader>
       
@@ -106,11 +90,11 @@ export function AlertsTable({ alerts, className }: AlertsTableProps) {
         <Table>
           <TableHeader>
             <TableRow className="border-border">
-              <TableHead className="w-20">Status</TableHead>
-              <TableHead>Alerta</TableHead>
-              <TableHead className="w-32">Origem</TableHead>
-              <TableHead className="w-32">Horário</TableHead>
-              <TableHead className="w-40">Ações</TableHead>
+              <TableHead className="w-20">{t('alerts.status')}</TableHead>
+              <TableHead>{t('alerts.alert')}</TableHead>
+              <TableHead className="w-32">{t('alerts.source')}</TableHead>
+              <TableHead className="w-32">{t('alerts.time')}</TableHead>
+              <TableHead className="w-40">{t('alerts.actions')}</TableHead>
             </TableRow>
           </TableHeader>
           
